@@ -17,7 +17,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          archive=$(find . -maxdepth 1 -type f -printf '%f\n' | grep -E '^FreeSpinCasino-[0-9]+\.[0-9]+\.[0-9]+-repaired\.zip$' | sort -V | tail -n 1)
+          archive=$(find . -maxdepth 1 -type f -printf '%f\n' | grep -E '^FreeSpinCasino-[0-9]+\.[0-9]+\.[0-9]+([_-].*)?\.zip$' | sort -V | tail -n 1)
           test -n "$archive"
           echo "Selected archive: $archive"
           unzip -t "$archive"
